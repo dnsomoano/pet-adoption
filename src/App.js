@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
 import petData from "./Data/pet.json";
+import Pet from "./Components/Pet";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       pets: []
-    }
+    };
   }
-  
 
   componentDidMount() {
     this.setState({
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>Pets for Adoption</header>
+        <header className="main-header">Pets for Adoption</header>
         {/*  */}
         <nav>
           <ul>
@@ -30,15 +30,7 @@ class App extends Component {
           </ul>
         </nav>
         {/*  */}
-        {this.state.pets.map((pet, i) => {
-          return (
-            <section className="pet-list" key={i}>
-              <header>{pet.name.$t}</header>
-              <img src={pet.media.photos.photo[3].$t} />
-              <button>Save for Later! arf!</button>
-            </section>
-          );
-        })}
+        <Pet />
       </div>
     );
   }

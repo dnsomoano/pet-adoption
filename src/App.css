@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+/* heading */
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 2.5em;
+}
+
 nav ul {
   display: flex;
   flex-direction: row-reverse;
@@ -9,4 +17,38 @@ nav ul {
   list-style: none;
 }
 
+nav li {
+  background-color: aquamarine;
+  border: 2px solid black;
+  border-radius: 0.2em;
+  padding: 0.5em;
+}
 
+nav li:hover {
+  color: blue;
+}
+
+/* Main page content */
+.pet-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: gray;
+  background-color: cornflowerblue;
+}
+
+.pet-list {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  border: 5px double black;
+  border-radius: 0.2em;
+  margin: 0.5em;
+}
+
+.pet-list img {
+  border-radius: 0.2em;
+  height: 20em;
+  width: 20em;
+  margin: 0.2em;
+}
