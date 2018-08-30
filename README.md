@@ -13,8 +13,8 @@ Then you will need to clone your fork to your local machine. You will be doing a
 
 ## Explorer Mode ##
 - - - - - - - - - -
-- [ ] Add some styling to the page. Make the header look like a header, add styling to the nav bar, and style the pets using flexbox to wrap around the page.
-- [ ] Make a Pet component to have all logic, HTML and styling for a pet.
+- [X] Add some styling to the page. Make the header look like a header, add styling to the nav bar, and style the pets using flexbox to wrap around the page.
+- [X] Make a Pet component to have all logic, HTML and styling for a pet.
 - [ ] Hook up the Save for later! Arf! to save the current pet to local storage.
 - [ ] On the main page, display the number of pets save to local storage
 - [ ] Submit a pull request back to https://github.com/mdewey/puppy-adoption

@@ -18,11 +18,14 @@ class Pet extends Component {
   }
 
   // TODO push value to local storage
-  addToStorage = e => {
-    const savedPets = this.state.pets.name.$t.concat(e)
-    localStorage.setItem("petsForAdoption", savedPets);
+  addToStorage = (newPet) => {
+    console.log(newPet)
+    const savedPet = this.state.cart.slice("");
+    savedPet.push(newPet)
+    localStorage.setItem("petsForAdoption", savedPet);
+    console.log(savedPet);
     this.setState({
-      cart: savedPets
+      cart: savedPet
     });
   };
 
@@ -34,7 +37,13 @@ class Pet extends Component {
             <section className="pet-item" key={i}>
               <header>{pet.name.$t}</header>
               <img src={pet.media.photos.photo[2].$t} alt="pet-pics" />
-              <button onClick={this.addToStorage} className="button-style">
+              <button
+                onClick={() => {
+                  console.log(pet.name.$t)
+                  this.addToStorage(pet.name.$t);
+                }}
+                className="button-style"
+              >
                 Save for Later! arf!
               </button>
             </section>
