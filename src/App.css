@@ -12,7 +12,7 @@
 
 nav ul {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-around;
   list-style: none;
 }
@@ -26,6 +26,7 @@ nav li {
 
 nav li:hover {
   color: blue;
+  cursor: pointer;
 }
 
 /* Main page content */
@@ -37,7 +38,7 @@ nav li:hover {
   background-color: cornflowerblue;
 }
 
-.pet-list {
+.pet-item {
   display: flex;
   flex-direction: column;
   background-color: beige;
@@ -46,9 +47,16 @@ nav li:hover {
   margin: 0.5em;
 }
 
-.pet-list img {
-  border-radius: 0.2em;
+.pet-item img {
+  border-radius: 0.5em;
   height: 20em;
   width: 20em;
   margin: 0.2em;
+  padding: 0.5em;
+}
+
+.button-style {
+  border-radius: 0.2em;
+  cursor: pointer;
+  margin: 0em;
 }
