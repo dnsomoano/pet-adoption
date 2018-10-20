@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import Pet from "./Components/Pet";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import IndexPage from "./Components/IndexPage";
+import SavedPets from "./Components/SavedPets";
 
 class App extends Component {
   constructor(props) {
@@ -25,25 +27,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="main-header">Pets for Adoption</header>
-        {/*  */}
-        <nav>
-          <ul>
-            <li>Potential adoptees</li>
-            <li>
-              <header>Cart</header>
-              <input
-                className="cart-display"
-                type="text"
-                placeholder={this.state.cart.length}
-              />
-            </li>
-          </ul>
-        </nav>
-        {/*  */}
-        <Pet />
-      </div>
+      <Router>
+        <div className="App">
+          <header className="main-header">Pets for Adoption</header>
+          <section className="cart-container">
+            {/* <Link to="/cart"> */}
+            <button className="cart-display">
+              Cart of {this.state.cart.length}
+            </button>
+            {/* </Link> */}
+          </section>
+          <Switch>
+            <Route path="/" exact component={IndexPage} />
+            <Route path="/cart" exact component={SavedPets} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

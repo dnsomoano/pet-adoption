@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import "../Stylings/IndexPage.css";
 import petData from "../Data/pet.json";
 
-class Pet extends Component {
+class IndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,4 +58,4 @@ class Pet extends Component {
   }
 }
 
-export default Pet;
+export default IndexPage;
