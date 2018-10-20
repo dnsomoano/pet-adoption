@@ -3,6 +3,26 @@ import "./App.css";
 import Pet from "./Components/Pet";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: []
+    };
+  }
+
+  componentDidMount() {
+    let savedPets = localStorage.getItem("petsForAdoption").split(",");
+    console.log(savedPets);
+    console.log(typeof savedPets);
+    this.setState({
+      cart: savedPets
+    });
+    console.log(this.state.cart);
+  }
+
+  // getLocalStorage = (e) => {
+  // };
+
   render() {
     return (
       <div className="App">
@@ -11,10 +31,13 @@ class App extends Component {
         <nav>
           <ul>
             <li>Potential adoptees</li>
-            {/* TODO display array length from the key value cart (... in child) */}
             <li>
-              <button>View all pets</button>
-              <input type="text" placeholder="pets" />
+              <header>Cart</header>
+              <input
+                className="cart-display"
+                type="text"
+                placeholder={this.state.cart.length}
+              />
             </li>
           </ul>
         </nav>

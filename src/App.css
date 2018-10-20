@@ -18,15 +18,20 @@ nav ul {
 }
 
 nav li {
-  background-color: #5C9EAD;
+  background-color: #5c9ead;
   border: 2px solid black;
   border-radius: 0.2em;
   padding: 0.5em;
 }
 
 nav li:hover {
-  background-color: #2F6690;
+  background-color: #2f6690;
   cursor: pointer;
+}
+
+.cart-display {
+  text-align: center;
+  width: 3em;
 }
 
 /* Main page content */
@@ -35,27 +40,27 @@ nav li:hover {
   flex-wrap: wrap;
   justify-content: center;
   color: gray;
-  background-color: #5C9EAD;
+  background-color: #5c9ead;
 }
 
 .pet-item {
   display: flex;
   flex-direction: column;
-  background-color: #F4F1DE;
-  border: 2px outset #6A8D92;
+  background-color: #f4f1de;
+  border: 2px outset #6a8d92;
   margin: 1em;
   padding-bottom: 4.5em;
 }
 
 .pet-item img {
-  border: 2px inset #6A8D92;
+  border: 2px inset #6a8d92;
   height: 18em;
   width: 18em;
   margin: 0em 1em 0em 1em;
 }
 
 .pet-name {
-  color: #5F464B;
+  color: #5f464b;
   font-family: "Shadows Into Light", cursive;
   font-size: 1em;
   margin: 0em;
@@ -69,7 +74,7 @@ nav li:hover {
 .button-style {
   display: flex;
   justify-content: center;
-  background-color: #2F6690;
+  background-color: #2f6690;
   border-radius: 0.5em;
   color: white;
   cursor: pointer;

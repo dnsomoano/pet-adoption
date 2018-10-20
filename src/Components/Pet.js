@@ -17,9 +17,10 @@ class Pet extends Component {
     // console.log(petData);
   }
 
-  // TODO push value to local storage
+  // push value to local storage
   addToStorage = newPet => {
     console.log(newPet);
+    // TODO comment next line to see if it matters
     const savedPet = this.state.cart.slice("");
     savedPet.push(newPet);
     localStorage.setItem("petsForAdoption", savedPet);
