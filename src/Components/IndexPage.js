@@ -20,14 +20,10 @@ class IndexPage extends Component {
 
   // push value to local storage
   addToStorage = newPet => {
-    console.log(newPet);
-    // TODO comment next line to see if it matters
-    const savedPet = this.state.cart.slice("");
-    savedPet.push(newPet);
-    localStorage.setItem("petsForAdoption", savedPet);
-    console.log(savedPet);
+    const bag = this.state.cart.concat(newPet);
+    localStorage.setItem("petsForAdoption", bag);
     this.setState({
-      cart: savedPet
+      cart: bag
     });
   };
 

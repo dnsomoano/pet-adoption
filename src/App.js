@@ -7,34 +7,44 @@ import SavedPets from "./Components/SavedPets";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    let fromStorage = localStorage.getItem("petsForAdoption");
+    fromStorage = fromStorage ? fromStorage.split(",") : [];
+
     this.state = {
-      cart: []
+      cart: fromStorage
     };
   }
 
-  componentDidMount() {
-    let savedPets = localStorage.getItem("petsForAdoption").split(",");
-    console.log(savedPets);
-    console.log(typeof savedPets);
-    this.setState({
-      cart: savedPets
-    });
-    console.log(this.state.cart);
-  }
+  // componentDidMount() {
+  //   let savedPets = ;
+  //   console.log(savedPets);
+  //   console.log(typeof savedPets);
+  //   this.setState({
+  //     cart: savedPets
+  //   });
+  //   console.log(this.state.cart);
+  // }
 
   // getLocalStorage = (e) => {
   // };
 
   render() {
+    let button = <button>Cart of 0</button>;
+    if (this.state.cart) {
+      button = (
+        <button className="cart-display">
+          Cart of {this.state.cart.length}
+        </button>
+      );
+    }
     return (
       <Router>
         <div className="App">
           <header className="main-header">Pets for Adoption</header>
           <section className="cart-container">
             {/* <Link to="/cart"> */}
-            <button className="cart-display">
-              Cart of {this.state.cart.length}
-            </button>
+            {button}
             {/* </Link> */}
           </section>
           <Switch>
