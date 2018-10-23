@@ -48,8 +48,11 @@ class App extends Component {
             {/* </Link> */}
           </section>
           <Switch>
-            <Route path="/" exact component={IndexPage} />
-            <Route path="/cart" exact component={SavedPets} />
+            <Route
+              path="/"
+              render={props => <IndexPage {...props} cart={this.state.cart} />}
+            />
+            <Route path="/cart/:cart" exact component={SavedPets} />
           </Switch>
         </div>
       </Router>
