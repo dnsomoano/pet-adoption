@@ -18,13 +18,21 @@ class IndexPage extends Component {
     // console.log(petData);
   }
 
-  // push value to local storage
-  addToStorage = newPet => {
+  // add value to local storage
+  handleAddToStorage = newPet => {
     const bag = this.state.cart.concat(newPet);
     localStorage.setItem("petsForAdoption", bag);
     this.setState({
       cart: bag
     });
+  };
+
+  // remove value from local storage
+  handleRemoveFromStorage = newPet => {
+    if (this.state.cart) {
+      localStorage.removeItem(newPet);
+      console.log(newPet);
+    }
   };
 
   render() {
@@ -40,6 +48,14 @@ class IndexPage extends Component {
                   <button className="disabled-button-style" disabled>
                     Save for Later! arf!
                   </button>
+                  <button
+                    className="button-style"
+                    onClick={() => {
+                      this.handleRemoveFromStorage(pet.name.$t);
+                    }}
+                  >
+                    Remove from Cart
+                  </button>
                 </section>
               </section>
             );
@@ -49,14 +65,16 @@ class IndexPage extends Component {
                 <header className="pet-name">{pet.name.$t}</header>
                 <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
                 <section className="button-container">
-                  <button
-                    onClick={() => {
-                      this.addToStorage(pet.name.$t);
-                    }}
-                    className="button-style"
-                  >
-                    Save for Later! arf!
-                  </button>
+                  <form>
+                    <button
+                      onClick={() => {
+                        this.handleAddToStorage(pet.name.$t);
+                      }}
+                      className="button-style"
+                    >
+                      Save for Later! arf!
+                    </button>
+                  </form>
                 </section>
               </section>
             );

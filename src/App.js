@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import IndexPage from "./Components/IndexPage";
 import SavedPets from "./Components/SavedPets";
 
@@ -16,43 +16,32 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   let savedPets = ;
-  //   console.log(savedPets);
-  //   console.log(typeof savedPets);
-  //   this.setState({
-  //     cart: savedPets
-  //   });
-  //   console.log(this.state.cart);
-  // }
-
-  // getLocalStorage = (e) => {
-  // };
-
   render() {
     let button = <button>Cart of 0</button>;
     if (this.state.cart) {
       button = (
-        <button className="cart-display">
-          Cart of {this.state.cart.length}
-        </button>
+        <Link to="/cart">
+          <button className="cart-display">
+            Cart of {this.state.cart.length}
+          </button>
+        </Link>
       );
     }
     return (
       <Router>
         <div className="App">
           <header className="main-header">Pets for Adoption</header>
-          <section className="cart-container">
-            {/* <Link to="/cart"> */}
-            {button}
-            {/* </Link> */}
-          </section>
+          <section className="cart-container">{button}</section>
           <Switch>
             <Route
               path="/"
               render={props => <IndexPage {...props} cart={this.state.cart} />}
             />
-            <Route path="/cart/:cart" exact component={SavedPets} />
+            <Route
+              path="/cart" // render={props => <SavedPets {...props} cart={this.state.cart} />}
+              exact
+              component={SavedPets}
+            />
           </Switch>
         </div>
       </Router>

@@ -32,6 +32,8 @@
 
 .button-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -45,7 +47,7 @@
   margin: 0em;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
-  height: 3em;
+  height: 2.3em;
   max-width: 10em;
 }
 
@@ -62,6 +64,6 @@
   margin: 0em;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
-  height: 3em;
+  height: 2.3em;
   max-width: 10em;
 }

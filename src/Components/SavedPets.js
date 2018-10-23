@@ -5,7 +5,7 @@ class SavedPets extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: []
+      cart: this.props.match.params.cart
     };
   }
 
@@ -13,24 +13,26 @@ class SavedPets extends Component {
     this.setState({
       pets: petData.petfinder.pets.pet
     });
+    console.log(this.state.pets);
     // console.log(petData);
     // petData.petfinder.pets.pet.name.$t
   }
 
-  // push value to local storage
-  getFromStorage = () => {
-    let savedPets = localStorage.getItem("petsForAdoption").split(",");
-    console.log(savedPets);
-    console.log(typeof savedPets);
-    this.setState({
-      cart: savedPets
-    });
-    console.log(this.state.cart);
-  };
+  // // push value to local storage
+  // getFromStorage = () => {
+  //   let savedPets = localStorage.getItem("petsForAdoption").split(",");
+  //   console.log(savedPets);
+  //   console.log(typeof savedPets);
+  //   this.setState({
+  //     cart: savedPets
+  //   });
+  //   console.log(this.state.cart);
+  // };
 
   render() {
     return (
       <section className="pet-container">
+        This is where saved pets are displayed.
         {/* {this.state.pets.map((pet, i) => {
           return (
             <section className="pet-item" key={i}>
