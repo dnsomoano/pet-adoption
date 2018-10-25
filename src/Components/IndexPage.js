@@ -62,7 +62,9 @@ class IndexPage extends Component {
               return (
                 <section className="pet-item" key={i}>
                   <header className="pet-name">{pet.name.$t}</header>
-                  <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                  <Link to={`/pet/${pet.name.$t}`}>
+                    <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                  </Link>
                   <section className="button-container">
                     <button className="disabled-button-style" disabled>
                       Save for Later! arf!
@@ -82,7 +84,9 @@ class IndexPage extends Component {
               return (
                 <section className="pet-item" key={i}>
                   <header className="pet-name">{pet.name.$t}</header>
-                  <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                  <Link to={`/pet/${pet.name.$t}`}>
+                    <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                  </Link>
                   <section className="button-container">
                     <button
                       onClick={() => {

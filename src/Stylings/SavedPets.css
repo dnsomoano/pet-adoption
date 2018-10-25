@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* background-color: #5c9ead; */
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.cart-button {
+  text-align: center;
+  max-width: 8em;
+  /* margin: 1em; */
+}
+
+.cart-header {
+  background-color: #5c9ead;
+}

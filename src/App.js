@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import IndexPage from "./Components/IndexPage";
 import SavedPets from "./Components/SavedPets";
+import PetDetail from "./Components/PetDetail";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
               exact
               component={IndexPage}
             />
+            <Route path="/pet/:name" exact component={PetDetail} />
             <Route
               path="/cart/:cart" // render={props => <SavedPets {...props} cart={this.state.cart} />}
               exact
