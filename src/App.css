@@ -28,15 +28,3 @@ nav li:hover {
   background-color: #2f6690;
   cursor: pointer;
 } */
-
-.cart-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.cart-display {
-  text-align: center;
-  max-width: 8em;
-  margin: 1em;
-}

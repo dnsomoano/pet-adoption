@@ -5,7 +5,8 @@ class SavedPets extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: this.props.match.params.cart
+      cart: this.props.match.params.cart,
+      pets: []
     };
   }
 
@@ -13,7 +14,7 @@ class SavedPets extends Component {
     this.setState({
       pets: petData.petfinder.pets.pet
     });
-    console.log(this.state.pets);
+    console.log(this.state.cart);
     // console.log(petData);
     // petData.petfinder.pets.pet.name.$t
   }
@@ -33,7 +34,7 @@ class SavedPets extends Component {
     return (
       <section className="pet-container">
         This is where saved pets are displayed.
-        {/* {this.state.pets.map((pet, i) => {
+        {/* {this.state.cart.map((pet, i) => {
           return (
             <section className="pet-item" key={i}>
               <header className="pet-name">{pet.name.$t}</header>
