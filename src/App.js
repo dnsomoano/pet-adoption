@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import IndexPage from "./Components/IndexPage";
 import SavedPets from "./Components/SavedPets";
 import PetDetail from "./Components/PetDetail";
@@ -10,21 +10,27 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="main-header">Pets for Adoption</header>
+          <Link to="/" className="link-style">
+            <header className="main-header">Pets for Adoption</header>
+          </Link>
           <Switch>
             <Route
-              path="/"
-              // render={props => <IndexPage {...props} cart={this.state.cart} />}
+              path="/" // render={props => <IndexPage {...props} cart={this.state.cart} />}
               exact
               component={IndexPage}
             />
             <Route path="/pet/:name" exact component={PetDetail} />
             <Route
-              path="/cart/:cart" // render={props => <SavedPets {...props} cart={this.state.cart} />}
+              path="/cart/:cart"
               exact
-              component={SavedPets}
+              component={
+                SavedPets // render={props => <SavedPets {...props} cart={this.state.cart} />}
+              }
             />
           </Switch>
+          <a href="https://github.com/dnsomoano">
+            <footer id="dev-footer">® Created by Daniel N Somoano</footer>
+          </a>
         </div>
       </Router>
     );

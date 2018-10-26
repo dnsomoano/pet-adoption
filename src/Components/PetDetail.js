@@ -1,13 +1,31 @@
 import React, { Component } from "react";
 import "../Stylings/PetDetail.css";
+import petData from "../Data/pet.json";
 import { Link } from "react-router-dom";
 
 class PetDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.match.params.name
+      name: this.props.match.params.name,
+      pet: {}
     };
+  }
+
+  componentDidMount() {
+    const totalPets = petData.petfinder.pets.pet;
+    let petObject = {};
+    totalPets.forEach(pet => {
+      if (pet.name.$t.includes(this.state.name)) {
+        petObject = pet;
+      }
+    });
+    console.log(petObject);
+    this.setState({
+      pet: petObject
+    });
+    console.log(this.state.pet);
+    console.log(typeof this.state.pet);
   }
 
   render() {

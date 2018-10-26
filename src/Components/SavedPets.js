@@ -23,24 +23,34 @@ class SavedPets extends Component {
     this.setState({
       pets: bucket
     });
+    // Clear bucket after binding to state
     bucket = [];
   }
 
-  // TODO splice is undefined
   // remove value from local storage and cart
-  // handleRemoveFromStorage = pet => {
-  //   const bag = this.state.cart;
-  //   let index = this.state.cart.indexOf(pet);
-  //   if (bag.includes(pet)) {
-  //     localStorage.removeItem("petsForAdoption");
-  //     bag.splice(index, 1);
-  //     localStorage.setItem("petsForAdoption", bag);
-  //   }
-  //   this.setState({
-  //     cart: bag
-  //   });
-  //   console.log(this.state.cart);
-  // };
+  handleRemoveFromStorage = pet => {
+    let bag = [];
+    typeof this.state.cart === "object"
+      ? (bag = this.state.cart)
+      : (bag = this.state.cart.split(","));
+    let index = bag.indexOf(pet);
+    if (bag.includes(pet)) {
+      localStorage.removeItem("petsForAdoption");
+      bag.splice(index, 1);
+      localStorage.setItem("petsForAdoption", bag);
+    }
+    this.setState({
+      cart: bag
+    });
+  };
+
+  // remove all pets from local storage and cart
+  handleRemoveAll = () => {
+    localStorage.removeItem("petsForAdoption");
+    this.setState({
+      cart: ""
+    });
+  };
 
   render() {
     return (
@@ -48,8 +58,8 @@ class SavedPets extends Component {
         {/* TODO fix stretch difference from index page to cart page */}
         <section className="navigation">
           <section className="breadcrumbs">
-            <Link to="/">
-              <button>Home</button>
+            <Link className="breadcrumb-link" to="/">
+              <button className="button-style">Home</button>
             </Link>
           </section>
           <section className="cart-container">
@@ -68,18 +78,24 @@ class SavedPets extends Component {
                 <header className="pet-name">{pet.name.$t}</header>
                 <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
                 <section className="button-container">
-                  {/* <button
+                  {/* TODO rerender page after every onclick */}
+                  <button
                     className="button-style"
                     onClick={() => {
                       this.handleRemoveFromStorage(pet.name.$t);
                     }}
                   >
                     Remove from Cart
-                  </button> */}
+                  </button>
                 </section>
               </section>
             );
           })}
+        </section>
+        <section className="button-container">
+          <button className="button-style" onClick={this.handleRemoveAll}>
+            Clear Cart
+          </button>
         </section>
       </div>
     );

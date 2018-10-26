@@ -20,7 +20,6 @@ class IndexPage extends Component {
     this.setState({
       pets: petData.petfinder.pets.pet
     });
-    // console.log(petData);
   }
 
   // add value to local storage and cart
@@ -48,12 +47,42 @@ class IndexPage extends Component {
   };
 
   render() {
+    let cartButton = <button />;
+    this.state.cart.length === 0
+      ? (cartButton = (
+          <button className="cart-button" disabled>
+            {this.state.cart.length}
+          </button>
+        ))
+      : (cartButton = (
+          <button className="cart-button button-style">
+            {this.state.cart.length}
+          </button>
+        ));
+
+    //     let buttonSection = <section>
+    // this.state.cart.includes(this.state.pets.name.$t) ? (saveButton = (<button className="disabled-button-style" disabled>Save for Later! arf!</button>
+    //   <button
+    //     className="button-style"
+    //     onClick={() => {
+    //       this.handleRemoveFromStorage(pet.name.$t);
+    //     }}
+    //   >
+    //     Remove from Cart
+    //                 </button>)) : saveButton = (<button
+    //     onClick={() => {
+    //       this.handleAddToStorage(pet.name.$t);
+    //     }}
+    //     className="button-style"
+    //   >
+    //     Save for Later! arf!
+    //                 </button>);
     return (
       <div>
-        {/* TODO disable button when cart is 0 and button needs styling. */}
+        {/* TODO replace buttons with user-friendly icons */}
         <section className="cart-container">
-          <Link to={`/cart/${this.state.cart}`}>
-            <button className="cart-button">{this.state.cart.length}</button>
+          <Link className="breadcrumb-link" to={`/cart/${this.state.cart}`}>
+            {cartButton}
           </Link>
         </section>
         <section className="pet-container">
