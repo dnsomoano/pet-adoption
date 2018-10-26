@@ -54,11 +54,13 @@ class PetDetail extends Component {
           return (
             <section className="detail-body" key={i}>
               {/* TODO map over media.photos array */}
-              <img
-                className="pet-headshot"
-                src={detail.media.photos.photo[2].$t}
-                alt={detail.name.$t}
-              />
+              <section className="img-container">
+                <img
+                  className="pet-headshot"
+                  src={detail.media.photos.photo[2].$t}
+                  alt={detail.name.$t}
+                />
+              </section>
               <section className="pet-details">
                 <h1>{detail.name.$t}</h1>
                 <header>{detail.age.$t}</header>

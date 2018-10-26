@@ -6,6 +6,12 @@
   padding: 5em;
 }
 
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .pet-headshot {
   border: 1em solid whitesmoke;
   height: 25em;
@@ -26,4 +32,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
+
+/* Mobile Devices */
+@media (max-device-width: 414px) and (min-device-width: 320px) {
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em;
+  }
+
+  /* .img-container {
+
+  } */
+
+  .pet-headshot {
+    height: 8em;
+    width: 8em;
+  }
+
+  .pet-details {
+    margin: 1em 0em 1em 0em;
+    padding: 0em;
+    width: 12em;
+  }
+}
+
+/* Tablets, iPads, and Kindles */
+/* @media (max-device-width: 1024px) and (min-device-width: 415px) {
+} */
+
+/* Large Monitors */
+/* @media (min-device-width: 1025px) {
+} */
