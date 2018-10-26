@@ -3,5 +3,27 @@
   flex-direction: row;
   justify-content: center;
   background-color: #5c9ead;
-  padding: 10em;
+  padding: 5em;
+}
+
+.pet-headshot {
+  border: 1em solid whitesmoke;
+  height: 25em;
+  width: 25em;
+}
+
+.pet-details {
+  background-color: #f4f1de;
+  border: 1px outset black;
+  border-radius: 0.3em;
+  margin-right: 1em;
+  margin-left: 1em;
+  padding: 1em;
+  width: 30em;
+}
+
+.pet-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

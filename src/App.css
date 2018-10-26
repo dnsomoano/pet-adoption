@@ -40,6 +40,7 @@ nav li:hover {
   justify-content: center;
   background-color: #2f6690;
   color: #e8eddf;
+  cursor: pointer;
   font-size: 0.8em;
   margin-right: 0.4em;
 }

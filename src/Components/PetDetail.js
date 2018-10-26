@@ -8,24 +8,22 @@ class PetDetail extends Component {
     super(props);
     this.state = {
       name: this.props.match.params.name,
-      pet: {}
+      pet: []
     };
   }
 
   componentDidMount() {
     const totalPets = petData.petfinder.pets.pet;
-    let petObject = {};
+    let petDetails = [];
     totalPets.forEach(pet => {
       if (pet.name.$t.includes(this.state.name)) {
-        petObject = pet;
+        petDetails.push(pet);
       }
     });
-    console.log(petObject);
+    console.log(petDetails);
     this.setState({
-      pet: petObject
+      pet: petDetails
     });
-    console.log(this.state.pet);
-    console.log(typeof this.state.pet);
   }
 
   render() {
@@ -43,14 +41,43 @@ class PetDetail extends Component {
             </button> */}
           </section>
         </section>
-        <section className="detail-body">
-          <img src="http://placekitten.com/200/300" alt="pet-name" />
-          <section>
-            <header>Pet name</header>
-            <h1>Breed</h1>
-            <section>Details about pet</section>
-          </section>
-        </section>
+        {this.state.pet.map((detail, i) => {
+          /* TODO map over if breeds is a breed array */
+          // if (detail.breeds.$t > 1) {
+          //   detail.breeds.map((breed, i) => {
+          //     return (
+          //     <h1>{detail.name.$t}</h1>
+          //     <header key={i}>{breed.breed.$t}</header>
+          //     );
+          //   });
+          // } else {
+          return (
+            <section className="detail-body" key={i}>
+              {/* TODO map over media.photos array */}
+              <img
+                className="pet-headshot"
+                src={detail.media.photos.photo[2].$t}
+                alt={detail.name.$t}
+              />
+              <section className="pet-details">
+                <h1>{detail.name.$t}</h1>
+                <header>{detail.age.$t}</header>
+                {/* <header>{detail.breeds.breed[0].$t}</header> */}
+                {/* TODO map over contact object */}
+                {/* <section>
+                
+                  {Object.values(detail.contact).map(info => {
+                    return <section>{info}</section>;
+                  })}
+                </section> */}
+                <section className="pet-description">
+                  {detail.description.$t}
+                </section>
+              </section>
+            </section>
+          );
+          // }
+        })}
       </div>
     );
   }
