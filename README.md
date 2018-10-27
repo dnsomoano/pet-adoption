@@ -24,10 +24,10 @@ Then you will need to clone your fork to your local machine. You will be doing a
 
 ### Adventure Mode
 
-- [ ] Add React Router and create the follow pages:
+- [x] Add React Router and create the follow pages:
   - [x] Index page to view all pets
-  - [ ] a page to view my saved pets
-  - [ ] a page to view all the details about a pet
+  - [x] a page to view my saved pets
+  - [x] a page to view all the details about a pet
 - [ ] Add more information to each Pet on the index page.
 
 _NOTE_: Remember to think in components

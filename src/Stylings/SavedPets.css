@@ -1,6 +1,6 @@
-.cart-body {
+/* .cart-body {
   background-color: #5c9ead;
-}
+} */
 
 .navigation {
   display: flex;
@@ -17,22 +17,30 @@
 }
 
 .breadcrumb-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: white;
   text-decoration: none;
 }
 
 .cart-container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-button {
   text-align: center;
   max-width: 8em;
-  /* margin: 1em; */
+  width: 3em;
 }
 
-.cart-header {
+.clear-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #5c9ead;
 }

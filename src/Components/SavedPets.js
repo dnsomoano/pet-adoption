@@ -63,6 +63,7 @@ class SavedPets extends Component {
             </Link>
           </section>
           <section className="cart-container">
+            <header className="cart-header">Cart</header>
             <button className="cart-button" disabled>
               {this.state.pets.length}
             </button>
@@ -76,7 +77,9 @@ class SavedPets extends Component {
             return (
               <section className="pet-item" key={i}>
                 <header className="pet-name">{pet.name.$t}</header>
-                <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                <Link to={`/pet/${pet.name.$t}`}>
+                  <img src={pet.media.photos.photo[2].$t} alt={pet.name.$t} />
+                </Link>
                 <section className="button-container">
                   {/* TODO rerender page after every onclick */}
                   <button
@@ -92,7 +95,7 @@ class SavedPets extends Component {
             );
           })}
         </section>
-        <section className="button-container">
+        <section className="clear-button-container">
           <button className="button-style" onClick={this.handleRemoveAll}>
             Clear Cart
           </button>

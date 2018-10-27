@@ -80,10 +80,18 @@ class IndexPage extends Component {
     return (
       <div>
         {/* TODO replace buttons with user-friendly icons */}
-        <section className="cart-container">
-          <Link className="breadcrumb-link" to={`/cart/${this.state.cart}`}>
-            {cartButton}
-          </Link>
+        <section className="navigation">
+          <section className="breadcrumbs">
+            <Link className="breadcrumb-link" to="/">
+              <button className="button-style">Home</button>
+            </Link>
+          </section>
+          <section className="cart-container">
+            <header className="cart-header">Cart</header>
+            <Link className="breadcrumb-link" to={`/cart/${this.state.cart}`}>
+              {cartButton}
+            </Link>
+          </section>
         </section>
         <section className="pet-container">
           {this.state.pets.map((pet, i) => {

@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 class PetDetail extends Component {
   constructor(props) {
     super(props);
+
+    let fromStorage = localStorage.getItem("petsForAdoption");
+    fromStorage = fromStorage ? fromStorage.split(",") : [];
+
     this.state = {
+      cart: fromStorage,
       name: this.props.match.params.name,
       pet: []
     };
@@ -27,18 +32,31 @@ class PetDetail extends Component {
   }
 
   render() {
+    let cartButton = <button />;
+    this.state.cart.length === 0
+      ? (cartButton = (
+          <button className="cart-button" disabled>
+            {this.state.cart.length}
+          </button>
+        ))
+      : (cartButton = (
+          <button className="cart-button button-style">
+            {this.state.cart.length}
+          </button>
+        ));
     return (
       <div>
         <section className="navigation">
           <section className="breadcrumbs">
-            <Link to="/">
-              <button>Home</button>
+            <Link className="breadcrumb-link" to="/">
+              <button className="button-style">Home</button>
             </Link>
           </section>
           <section className="cart-container">
-            {/* <button className="cart-button" disabled>
-              {this.state.pets.length}
-            </button> */}
+            <header className="cart-header">Cart</header>
+            <Link className="breadcrumb-link" to={`/cart/${this.state.cart}`}>
+              {cartButton}
+            </Link>
           </section>
         </section>
         {this.state.pet.map((detail, i) => {

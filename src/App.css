@@ -48,6 +48,14 @@ a {
   text-decoration: none;
 }
 
+/* Large Monitors */
+/* @media (min-device-width: 1025px) {
+} */
+
+/* Tablets, iPads, and Kindles */
+/* @media (max-device-width: 1024px) and (min-device-width: 415px) {
+} */
+
 /* Mobile Devices */
 @media (max-device-width: 414px) and (min-device-width: 320px) {
   /* .App {
@@ -55,7 +63,7 @@ a {
   } */
 
   .main-header {
-    font-size: 1.2em;
+    font-size: 2em;
   }
 
   .detail-body {
@@ -65,11 +73,3 @@ a {
     padding: 0.5em;
   }
 }
-
-/* Tablets, iPads, and Kindles */
-/* @media (max-device-width: 1024px) and (min-device-width: 415px) {
-} */
-
-/* Large Monitors */
-/* @media (min-device-width: 1025px) {
-} */
